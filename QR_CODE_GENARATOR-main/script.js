@@ -24,14 +24,6 @@ generateBtn.addEventListener("click", async () => {
   };
 });
 
-// Reset when input is cleared
-qrInput.addEventListener("input", () => {
-  if (!qrInput.value.trim() && wrapper.classList.contains("active")) {
-    wrapper.classList.remove("active");
-    qrValue = "";
-    downloadSection.style.display = "none";
-  }
-});
 
 // Download QR Code
 downloadBtn.addEventListener("click", () => {
@@ -42,7 +34,7 @@ downloadBtn.addEventListener("click", () => {
       a.href = URL.createObjectURL(blob);
       a.download = `QR-Code-${Date.now()}.png`;
       a.click();
-      URL.revokeObjectURL(a.href);
+
     })
     .catch(() => alert("Download failed!"));
 });
